@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "get_email": {
+      "GET_EMAIL00": {
+        "attachment": [],
+        "body": "s3d",
+        "from": "s3e",
+        "id": "GET_EMAIL00",
+        "received_at": "s40",
+        "subject": "s41"
+      },
+      "GET_EMAIL01": {
+        "attachment": [],
+        "body": "s79",
+        "from": "s7a",
+        "id": "GET_EMAIL01",
+        "received_at": "s7c",
+        "subject": "s7d"
+      },
+      "GET_EMAIL02": {
+        "attachment": [],
+        "body": "sb5",
+        "from": "sb6",
+        "id": "GET_EMAIL02",
+        "received_at": "sb8",
+        "subject": "sb9"
+      }
+    }
+  },
+  "new": {
+    "get_email": {
+      "get_email_ref01": {
+        "attachment": [],
+        "body": "sf1",
+        "from": "sf2",
+        "received_at": "sf4",
+        "subject": "sf5"
+      }
+    }
+  }
+}

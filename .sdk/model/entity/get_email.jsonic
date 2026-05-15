@@ -1,0 +1,67 @@
+# Entity: get_email
+
+main: kit: entity: get_email: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "attachment"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "body"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "from"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "received_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "subject"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "get_email"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/get_email"
+          parts: [
+            "get_email"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

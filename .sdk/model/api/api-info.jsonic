@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://github.com/l0v3m0n3y/kmail"
+      }
+      description: "The Kmail API provides a web interface for kmail.pw, a professional temporary email service. It is designed to protect user privacy and security while offering reliable and secure temporary email services."
+      servers: [
+        {
+          description: "Kmail API Production Server"
+          url: "https://kmail.pw"
+        }
+      ]
+      title: "Kmail API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

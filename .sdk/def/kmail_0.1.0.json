@@ -1,0 +1,163 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Kmail API",
+    "description": "The Kmail API provides a web interface for kmail.pw, a professional temporary email service. It is designed to protect user privacy and security while offering reliable and secure temporary email services.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/kmail"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://kmail.pw",
+      "description": "Kmail API Production Server"
+    }
+  ],
+  "paths": {
+    "/get_email": {
+      "get": {
+        "summary": "Get temporary email information",
+        "description": "Retrieves temporary email information including email address and inbox details from the kmail.pw service.",
+        "operationId": "getEmail",
+        "tags": [
+          "Email"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with email information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailInfo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EmailInfo": {
+        "type": "object",
+        "description": "Information about the temporary email",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "The temporary email address",
+            "example": "example@kmail.pw"
+          },
+          "messages": {
+            "type": "array",
+            "description": "List of received messages",
+            "items": {
+              "$ref": "#/components/schemas/Message"
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the email was created"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the email expires"
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "description": "Email message details",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the message"
+          },
+          "from": {
+            "type": "string",
+            "format": "email",
+            "description": "Sender email address"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Email subject"
+          },
+          "body": {
+            "type": "string",
+            "description": "Email body content"
+          },
+          "received_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the message was received"
+          },
+          "attachments": {
+            "type": "array",
+            "description": "List of attachments",
+            "items": {
+              "type": "object",
+              "properties": {
+                "filename": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "content_type": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Email",
+      "description": "Temporary email operations"
+    }
+  ]
+}
