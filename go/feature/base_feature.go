@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/kmail-sdk/core"
+	"github.com/voxgig-sdk/kmail-sdk/go/core"
 )
 
 type BaseFeature struct {

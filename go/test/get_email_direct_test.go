@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/kmail-sdk"
-	"github.com/voxgig-sdk/kmail-sdk/core"
+	sdk "github.com/voxgig-sdk/kmail-sdk/go"
+	"github.com/voxgig-sdk/kmail-sdk/go/core"
 )
 
 func TestGetEmailDirect(t *testing.T) {

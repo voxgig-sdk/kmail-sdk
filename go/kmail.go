@@ -1,10 +1,10 @@
 package voxgigkmailsdk
 
 import (
-	"github.com/voxgig-sdk/kmail-sdk/core"
-	"github.com/voxgig-sdk/kmail-sdk/entity"
-	"github.com/voxgig-sdk/kmail-sdk/feature"
-	_ "github.com/voxgig-sdk/kmail-sdk/utility"
+	"github.com/voxgig-sdk/kmail-sdk/go/core"
+	"github.com/voxgig-sdk/kmail-sdk/go/entity"
+	"github.com/voxgig-sdk/kmail-sdk/go/feature"
+	_ "github.com/voxgig-sdk/kmail-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
