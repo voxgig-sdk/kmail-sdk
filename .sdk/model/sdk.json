@@ -16,7 +16,17 @@
           }
         ],
         "title": "Kmail API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Generate disposable inboxes and fetch incoming mail from the kmail.pw temporary email service",
+        "homepage": "https://kmail.pw",
+        "docs_url": "https://freepublicapis.com/kmail-api",
+        "license_short": "Free public API; no explicit licence published",
+        "license_md": "- No formal licence statement is published for the Kmail API.\n- The underlying service is free to use with no registration and no fees.\n- Abusive or illegal use is prohibited and may result in immediate termination.\n- Check the [privacy](https://kmail.pw/privacy) and [terms](https://kmail.pw/terms) pages for the latest conditions.",
+        "about_md": "[Kmail](https://kmail.pw) is a temporary (disposable) email service that lets you create throwaway inboxes for receiving mail without registering an account. The HTTP API exposes the same refresh mechanism the web UI uses to poll for newly delivered messages.\n\nWhat you get from the API:\n\n- Fetch newly arrived messages for a temporary inbox via `GET /api/refresh`.\n- Receive plain text, HTML, and attachment payloads as delivered to the address.\n\nOperational notes:\n\n- Inboxes are receive-only — Kmail does not let you send outbound email.\n- Each address is valid for 24 hours, after which messages are deleted automatically.\n- The freepublicapis.com listing notes that CORS is disabled, so browser-side calls from other origins will be blocked.\n- No authentication or API key is documented; no rate limits are published.",
+        "entity_desc": {
+          "get_email": "Polls a temporary inbox for newly delivered messages via `GET /api/refresh`, returning any mail received since the last refresh."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "get_email": {

@@ -92,7 +92,6 @@ function get_email_basic_setup(extra)
     ["KMAIL_TEST_GET_EMAIL_ENTID"] = idmap,
     ["KMAIL_TEST_LIVE"] = "FALSE",
     ["KMAIL_TEST_EXPLAIN"] = "FALSE",
-    ["KMAIL_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function get_email_basic_setup(extra)
   if env["KMAIL_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["KMAIL_APIKEY"],
       },
       extra or {},
     })

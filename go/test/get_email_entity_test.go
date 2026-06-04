@@ -119,7 +119,6 @@ func get_emailBasicSetup(extra map[string]any) *entityTestSetup {
 		"KMAIL_TEST_GET_EMAIL_ENTID": idmap,
 		"KMAIL_TEST_LIVE":      "FALSE",
 		"KMAIL_TEST_EXPLAIN":   "FALSE",
-		"KMAIL_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["KMAIL_TEST_GET_EMAIL_ENTID"])
@@ -130,7 +129,6 @@ func get_emailBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["KMAIL_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["KMAIL_APIKEY"],
 			},
 			extra,
 		})

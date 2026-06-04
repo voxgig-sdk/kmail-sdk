@@ -20,9 +20,6 @@ class KmailConfig
             ],
             "options" => [
                 "base" => "https://kmail.pw",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
