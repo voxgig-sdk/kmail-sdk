@@ -10,7 +10,7 @@ The TypeScript SDK for the Kmail API — a type-safe, entity-oriented client wit
 
 ## Install
 ```bash
-npm install kmail
+npm install @voxgig-sdk/kmail
 ```
 ## Tutorial: your first API call
 

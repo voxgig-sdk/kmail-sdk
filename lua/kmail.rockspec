@@ -8,12 +8,14 @@ source = {
   dir = "kmail-sdk/lua"
 }
 description = {
-  summary = "Kmail SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Kmail public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/kmail-sdk",
+  issues_url = "https://github.com/voxgig-sdk/kmail-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "kmail" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

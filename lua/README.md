@@ -10,7 +10,7 @@ The Lua SDK for the Kmail API — an entity-oriented client using Lua convention
 
 ## Install
 ```bash
-luarocks install kmail-sdk
+luarocks install voxgig-sdk-kmail
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The Python SDK for the Kmail API — an entity-oriented client following Pythoni
 
 ## Install
 ```bash
-pip install kmail-sdk
+pip install voxgig-sdk-kmail
 ```
 
 Or install from source:

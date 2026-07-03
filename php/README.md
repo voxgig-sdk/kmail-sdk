@@ -10,7 +10,7 @@ The PHP SDK for the Kmail API — an entity-oriented client using PHP convention
 
 ## Install
 ```bash
-composer require voxgig/kmail-sdk
+composer require voxgig-sdk/kmail
 ```
 
 

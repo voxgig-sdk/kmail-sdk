@@ -10,13 +10,13 @@ The Ruby SDK for the Kmail API — an entity-oriented client using idiomatic Rub
 
 ## Install
 ```bash
-gem install kmail-sdk
+gem install voxgig-sdk-kmail
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "kmail-sdk"
+gem "voxgig-sdk-kmail"
 ```
 
 Then run:
