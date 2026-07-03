@@ -1,6 +1,11 @@
 # Kmail Ruby SDK
 
-The Ruby SDK for the Kmail API. Provides an entity-oriented interface using idiomatic Ruby conventions.
+
+
+The Ruby SDK for the Kmail API — an entity-oriented client using idiomatic Ruby conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -31,13 +36,15 @@ loading a specific record.
 ```ruby
 require_relative "Kmail_sdk"
 
-client = KmailSDK.new({})
+client = KmailSDK.new({
+  "apikey" => ENV["KMAIL_APIKEY"],
+})
 ```
 
 ### 2. List getemails
 
 ```ruby
-result, err = client.GetEmail(nil).list(nil, nil)
+result, err = client.GetEmail().list
 raise err if err
 
 if result.is_a?(Array)
@@ -89,11 +96,9 @@ puts fetchdef["headers"]
 Create a mock client for unit testing — no server required:
 
 ```ruby
-client = KmailSDK.test(nil, nil)
+client = KmailSDK.test
 
-result, err = client.Kmail(nil).load(
-  { "id" => "test01" }, nil
-)
+result, err = client.Kmail().load({ "id" => "test01" })
 # result contains mock response data
 ```
 
@@ -125,6 +130,7 @@ Create a `.env.local` file at the project root:
 
 ```
 KMAIL_TEST_LIVE=TRUE
+KMAIL_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,6 +153,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

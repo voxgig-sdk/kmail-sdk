@@ -93,12 +93,14 @@ func get_emailDirectSetup(mockres any) *get_emailDirectSetupResult {
 	env := envOverride(map[string]any{
 		"KMAIL_TEST_GET_EMAIL_ENTID": map[string]any{},
 		"KMAIL_TEST_LIVE":    "FALSE",
+		"KMAIL_APIKEY":       "NONE",
 	})
 
 	live := env["KMAIL_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["KMAIL_APIKEY"],
 		}
 		client := sdk.NewKmailSDK(mergedOpts)
 

@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'KMAIL_TEST_GET_EMAIL_ENTID': {},
     'KMAIL_TEST_LIVE': 'FALSE',
+    'KMAIL_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.KMAIL_TEST_LIVE
 
   if (live) {
     const client = new KmailSDK({
+      apikey: env.KMAIL_APIKEY,
     })
 
     let idmap: any = env['KMAIL_TEST_GET_EMAIL_ENTID']

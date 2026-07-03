@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'KMAIL_TEST_GET_EMAIL_ENTID': idmap,
     'KMAIL_TEST_LIVE': 'FALSE',
     'KMAIL_TEST_EXPLAIN': 'FALSE',
+    'KMAIL_APIKEY': 'NONE',
   })
 
   idmap = env['KMAIL_TEST_GET_EMAIL_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new KmailSDK(merge([
       {
+        apikey: env.KMAIL_APIKEY,
       },
       extra
     ]))

@@ -1,24 +1,8 @@
 # Kmail SDK
 
-Generate disposable inboxes and fetch incoming mail from the kmail.pw temporary email service
+Kmail API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Kmail API
-
-[Kmail](https://kmail.pw) is a temporary (disposable) email service that lets you create throwaway inboxes for receiving mail without registering an account. The HTTP API exposes the same refresh mechanism the web UI uses to poll for newly delivered messages.
-
-What you get from the API:
-
-- Fetch newly arrived messages for a temporary inbox via `GET /api/refresh`.
-- Receive plain text, HTML, and attachment payloads as delivered to the address.
-
-Operational notes:
-
-- Inboxes are receive-only — Kmail does not let you send outbound email.
-- Each address is valid for 24 hours, after which messages are deleted automatically.
-- The freepublicapis.com listing notes that CORS is disabled, so browser-side calls from other origins will be blocked.
-- No authentication or API key is documented; no rate limits are published.
 
 ## Try it
 
@@ -52,29 +36,31 @@ gem install kmail-sdk
 luarocks install kmail-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { KmailSDK } from 'kmail'
 
-const client = new KmailSDK({})
+const client = new KmailSDK({
+  apikey: process.env.KMAIL_APIKEY,
+})
 
 // List all getemails
 const getemails = await client.GetEmail().list()
+console.log(getemails.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -104,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GetEmail** | Polls a temporary inbox for newly delivered messages via `GET /api/refresh`, returning any mail received since the last refresh. | `/get_email` |
+| **GetEmail** |  | `/get_email` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -114,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from kmail_sdk import KmailSDK
 
-client = KmailSDK({})
+client = KmailSDK({
+    "apikey": os.environ.get("KMAIL_APIKEY"),
+})
 
 # List all getemails
-getemails, err = client.GetEmail(None).list(None, None)
+getemails, err = client.GetEmail().list()
+print(getemails)
 ```
 
 ### PHP
@@ -128,10 +118,13 @@ getemails, err = client.GetEmail(None).list(None, None)
 <?php
 require_once 'kmail_sdk.php';
 
-$client = new KmailSDK([]);
+$client = new KmailSDK([
+    "apikey" => getenv("KMAIL_APIKEY"),
+]);
 
 // List all getemails
-[$getemails, $err] = $client->GetEmail(null)->list(null, null);
+[$getemails, $err] = $client->GetEmail()->list();
+print_r($getemails);
 ```
 
 ### Golang
@@ -139,10 +132,13 @@ $client = new KmailSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/kmail-sdk/go"
 
-client := sdk.NewKmailSDK(map[string]any{})
+client := sdk.NewKmailSDK(map[string]any{
+    "apikey": os.Getenv("KMAIL_APIKEY"),
+})
 
 // List all getemails
 getemails, err := client.GetEmail(nil).List(nil, nil)
+fmt.Println(getemails)
 ```
 
 ### Ruby
@@ -150,10 +146,13 @@ getemails, err := client.GetEmail(nil).List(nil, nil)
 ```ruby
 require_relative "Kmail_sdk"
 
-client = KmailSDK.new({})
+client = KmailSDK.new({
+  "apikey" => ENV["KMAIL_APIKEY"],
+})
 
 # List all getemails
-getemails, err = client.GetEmail(nil).list(nil, nil)
+getemails, err = client.GetEmail().list
+puts getemails
 ```
 
 ### Lua
@@ -161,10 +160,13 @@ getemails, err = client.GetEmail(nil).list(nil, nil)
 ```lua
 local sdk = require("kmail_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("KMAIL_APIKEY"),
+})
 
 -- List all getemails
-local getemails, err = client:GetEmail(nil):list(nil, nil)
+local getemails, err = client:GetEmail():list()
+print(getemails)
 ```
 
 ## Unit testing in offline mode
@@ -183,25 +185,21 @@ const result = await client.GetEmail().load({ id: 'test01' })
 ### Python
 
 ```python
-client = KmailSDK.test(None, None)
-result, err = client.GetEmail(None).load(
-    {"id": "test01"}, None
-)
+client = KmailSDK.test()
+result, err = client.GetEmail().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = KmailSDK::test(null, null);
-[$result, $err] = $client->GetEmail(null)->load(
-    ["id" => "test01"], null
-);
+$client = KmailSDK::test();
+[$result, $err] = $client->GetEmail()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.GetEmail(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -210,19 +208,15 @@ result, err := client.GetEmail(nil).Load(
 ### Ruby
 
 ```ruby
-client = KmailSDK.test(nil, nil)
-result, err = client.GetEmail(nil).load(
-  { "id" => "test01" }, nil
-)
+client = KmailSDK.test
+result, err = client.GetEmail().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:GetEmail(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:GetEmail():load({ id = "test01" })
 ```
 
 ## How it works
@@ -326,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Kmail API
-
-- Upstream: [https://kmail.pw](https://kmail.pw)
-- API docs: [https://freepublicapis.com/kmail-api](https://freepublicapis.com/kmail-api)
-
-- No formal licence statement is published for the Kmail API.
-- The underlying service is free to use with no registration and no fees.
-- Abusive or illegal use is prohibited and may result in immediate termination.
-- Check the [privacy](https://kmail.pw/privacy) and [terms](https://kmail.pw/terms) pages for the latest conditions.
 
 ---
 

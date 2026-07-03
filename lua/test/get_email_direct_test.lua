@@ -63,12 +63,14 @@ function get_email_direct_setup(mockres)
   local env = runner.env_override({
     ["KMAIL_TEST_GET_EMAIL_ENTID"] = {},
     ["KMAIL_TEST_LIVE"] = "FALSE",
+    ["KMAIL_APIKEY"] = "NONE",
   })
 
   local live = env["KMAIL_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["KMAIL_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

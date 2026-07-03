@@ -86,6 +86,7 @@ function get_email_basic_setup($extra)
         "KMAIL_TEST_GET_EMAIL_ENTID" => $idmap,
         "KMAIL_TEST_LIVE" => "FALSE",
         "KMAIL_TEST_EXPLAIN" => "FALSE",
+        "KMAIL_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function get_email_basic_setup($extra)
     if ($env["KMAIL_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["KMAIL_APIKEY"],
             ],
             $extra ?? [],
         ]);
