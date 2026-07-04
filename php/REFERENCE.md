@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## GetEmailEntity
 
 ```php
-$get_email = $client->get_email();
+$get_email = $client->GetEmail();
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ $get_email = $client->get_email();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->get_email()->list([]);
+$results = $client->GetEmail()->list([]);
 ```
 
 ### Common Methods

@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:get_email():list() / client:get_email():load({ id = ... })
-function KmailSDK:get_email(data)
+-- Idiomatic facade: client:GetEmail():list() / client:GetEmail():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function KmailSDK:GetEmail(data)
   local EntityMod = require("entity.get_email_entity")
   if data == nil then
     if self._get_email == nil then
@@ -253,12 +254,6 @@ function KmailSDK:get_email(data)
     end
     return self._get_email
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:get_email() instead.
-function KmailSDK:GetEmail(data)
-  local EntityMod = require("entity.get_email_entity")
   return EntityMod.new(self, data)
 end
 

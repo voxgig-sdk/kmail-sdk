@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## GetEmailEntity
 
 ```ruby
-get_email = client.get_email
+get_email = client.GetEmail
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ get_email = client.get_email
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.get_email.list(nil)
+results = client.GetEmail.list(nil)
 ```
 
 ### Common Methods

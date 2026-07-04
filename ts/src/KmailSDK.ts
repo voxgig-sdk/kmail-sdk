@@ -204,14 +204,7 @@ class KmailSDK {
 
 
 
-  _get_email?: GetEmailEntity
-
-  // Idiomatic facade: `client.get_email.list()` / `client.get_email.load({ id })`.
-  get get_email(): GetEmailEntity {
-    return (this._get_email ??= new GetEmailEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_email` instead. */
+  // Entity access: `client.GetEmail().list()` / `client.GetEmail().load({ id })`.
   GetEmail(data?: any) {
     const self = this
     return new GetEmailEntity(self,data)

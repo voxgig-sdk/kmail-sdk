@@ -29,18 +29,16 @@ require_once 'kmail_sdk.php';
 $client = new KmailSDK();
 ```
 
-### 2. List getemails
+### 2. List getemail records
 
 ```php
 try {
-    $result = $client->getemail()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of GetEmail records — iterate directly.
+    $getemails = $client->GetEmail()->list();
+    foreach ($getemails as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = KmailSDK::test();
+$client = KmailSDK::test([
+    "entity" => ["getemail" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->getemail()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$getemail = $client->GetEmail()->load(["id" => "test01"]);
+print_r($getemail);
 ```
 
 ### Use a custom fetch function
@@ -233,7 +235,7 @@ API path: `/get_email`
 
 ### GetEmail
 
-Create an instance: `const get_email = client.get_email`
+Create an instance: `$get_email = $client->GetEmail();`
 
 #### Operations
 
@@ -254,8 +256,9 @@ Create an instance: `const get_email = client.get_email`
 
 #### Example: List
 
-```ts
-const get_emails = await client.get_email.list()
+```php
+// list() returns an array of GetEmail records (throws on error).
+$get_emails = $client->GetEmail()->list();
 ```
 
 
@@ -330,7 +333,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$getemail = $client->getemail();
+$getemail = $client->GetEmail();
 $getemail->load(["id" => "example_id"]);
 
 // $getemail->dataGet() now returns the loaded getemail data

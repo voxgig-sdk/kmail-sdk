@@ -31,14 +31,16 @@ from kmail_sdk import KmailSDK
 client = KmailSDK()
 ```
 
-### 2. List getemails
+### 2. List getemail records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.getemail.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    getemails = client.GetEmail().list({})
+    for getemail in getemails:
+        print(getemail)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = KmailSDK.test()
 
-result = client.getemail.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+getemail = client.GetEmail().load({"id": "test01"})
+# getemail contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -225,7 +228,7 @@ API path: `/get_email`
 
 ### GetEmail
 
-Create an instance: `const get_email = client.get_email`
+Create an instance: `get_email = client.GetEmail()`
 
 #### Operations
 
@@ -246,8 +249,8 @@ Create an instance: `const get_email = client.get_email`
 
 #### Example: List
 
-```ts
-const get_emails = await client.get_email.list()
+```python
+get_emails = client.GetEmail().list({})
 ```
 
 
@@ -321,7 +324,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-getemail = client.getemail
+getemail = client.GetEmail()
 getemail.load({"id": "example_id"})
 
 # getemail.data_get() now returns the loaded getemail data

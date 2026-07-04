@@ -26,9 +26,11 @@ import { KmailSDK } from '@voxgig-sdk/kmail'
 
 const client = new KmailSDK()
 
-// List all getemails
-const getemails = await client.getemail.list()
-console.log(getemails.data)
+// List all getemails (returns GetEmail[])
+const getemails = await client.GetEmail().list()
+for (const getemail of getemails) {
+  console.log(getemail)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from kmail_sdk import KmailSDK
 
 client = KmailSDK()
 
-# List all getemails
-getemails = client.getemail.list()
-print(getemails)
+# List all getemails (returns a list, raises on error)
+getemails = client.GetEmail().list({})
+for getemail in getemails:
+    print(getemail)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'kmail_sdk.php';
 
 $client = new KmailSDK();
 
-// List all getemails (throws on error)
-$getemails = $client->getemail()->list();
+// List all getemails (returns an array; throws on error)
+$getemails = $client->GetEmail()->list();
 print_r($getemails);
 ```
 
@@ -120,8 +123,8 @@ require_relative "Kmail_sdk"
 
 client = KmailSDK.new
 
-# List all getemails
-getemails = client.getemail.list
+# List all getemails (returns an Array; raises on error)
+getemails = client.GetEmail.list
 puts getemails
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("kmail_sdk")
 local client = sdk.new()
 
 -- List all getemails
-local getemails, err = client:getemail():list()
+local getemails, err = client:GetEmail():list()
 print(getemails)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = KmailSDK.test()
-const result = await client.getemail.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const getemail = await client.GetEmail().load({ id: 'test01' })
+// getemail is a bare GetEmail populated with mock data
+console.log(getemail)
 ```
 
 ### Python
 
 ```python
 client = KmailSDK.test()
-result = client.getemail.load({"id": "test01"})
+getemail = client.GetEmail().load({"id": "test01"})
+print(getemail)
 ```
 
 ### PHP
 
 ```php
-$client = KmailSDK::test();
-$result = $client->getemail()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = KmailSDK::test([
+    "entity" => ["getemail" => ["test01" => ["id" => "test01"]]],
+]);
+$getemail = $client->GetEmail()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.GetEmail(nil).Load(
 ### Ruby
 
 ```ruby
-client = KmailSDK.test
-result = client.getemail.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = KmailSDK.test({
+  "entity" => { "getemail" => { "test01" => { "id" => "test01" } } },
+})
+getemail = client.GetEmail.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:getemail():load({ id = "test01" })
+local result, err = client:GetEmail():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

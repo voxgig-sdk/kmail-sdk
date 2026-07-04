@@ -28,16 +28,14 @@ require_relative "Kmail_sdk"
 client = KmailSDK.new
 ```
 
-### 2. List getemails
+### 2. List getemail records
 
 ```ruby
 begin
-  result = client.getemail.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of GetEmail records — iterate directly.
+  getemails = client.GetEmail.list
+  getemails.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = KmailSDK.test
+client = KmailSDK.test({
+  "entity" => { "getemail" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.getemail.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+getemail = client.GetEmail.load({ "id" => "test01" })
+puts getemail
 ```
 
 ### Use a custom fetch function
@@ -228,7 +230,7 @@ API path: `/get_email`
 
 ### GetEmail
 
-Create an instance: `const get_email = client.get_email`
+Create an instance: `get_email = client.GetEmail`
 
 #### Operations
 
@@ -249,8 +251,9 @@ Create an instance: `const get_email = client.get_email`
 
 #### Example: List
 
-```ts
-const get_emails = await client.get_email.list()
+```ruby
+# list returns an Array of GetEmail records (raises on error).
+get_emails = client.GetEmail.list
 ```
 
 
@@ -325,7 +328,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-getemail = client.getemail
+getemail = client.GetEmail
 getemail.load({ "id" => "example_id" })
 
 # getemail.data_get now returns the loaded getemail data

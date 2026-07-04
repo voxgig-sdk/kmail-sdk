@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## GetEmailEntity
 
 ```python
-get_email = client.get_email
+get_email = client.GetEmail()
 ```
 
 ### Fields
@@ -101,7 +101,9 @@ get_email = client.get_email
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.get_email.list({})
+results = client.GetEmail().list({})
+for get_email in results:
+    print(get_email)
 ```
 
 ### Common Methods

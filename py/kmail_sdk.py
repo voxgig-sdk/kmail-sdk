@@ -220,25 +220,15 @@ class KmailSDK:
         }
 
 
-    @property
-    def get_email(self):
-        """Idiomatic facade: client.get_email.list() / client.get_email.load({"id": ...})."""
-        from entity.get_email_entity import GetEmailEntity
-        cached = getattr(self, "_get_email", None)
-        if cached is None:
-            cached = GetEmailEntity(self, None)
-            self._get_email = cached
-        return cached
-
-    def GetEmail(self, data=None):
-        # Deprecated: use client.get_email instead.
+    def GetEmail(self, data=None) -> "GetEmailEntity":
+        """Entity factory: client.GetEmail().list({}) / client.GetEmail().load({"id": ...})."""
         from entity.get_email_entity import GetEmailEntity
         return GetEmailEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "KmailSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class KmailSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.get_email_entity import GetEmailEntity

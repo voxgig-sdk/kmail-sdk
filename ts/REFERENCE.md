@@ -109,7 +109,7 @@ Alias for `KmailSDK.test()`.
 ## GetEmailEntity
 
 ```ts
-const get_email = client.get_email
+const get_email = client.GetEmail()
 ```
 
 ### Fields
@@ -130,7 +130,7 @@ const get_email = client.get_email
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.get_email.list()
+const results = await client.GetEmail().list()
 ```
 
 ### Common Methods

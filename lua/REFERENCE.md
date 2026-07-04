@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## GetEmailEntity
 
 ```lua
-local get_email = client:get_email(nil)
+local get_email = client:GetEmail(nil)
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ local get_email = client:get_email(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:get_email():list()
+local results, err = client:GetEmail():list()
 ```
 
 ### Common Methods

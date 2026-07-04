@@ -208,13 +208,7 @@ class KmailSDK
   end
 
 
-  # Idiomatic facade: client.get_email.list / client.get_email.load({ "id" => ... })
-  def get_email
-    require_relative 'entity/get_email_entity'
-    @get_email ||= GetEmailEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_email instead.
+  # Canonical facade: client.GetEmail.list / client.GetEmail.load({ "id" => ... })
   def GetEmail(data = nil)
     require_relative 'entity/get_email_entity'
     GetEmailEntity.new(self, data)
