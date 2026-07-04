@@ -50,8 +50,7 @@ class GetEmailEntityTest extends TestCase
         $get_email_ref01_ent = $client->GetEmail(null);
         $get_email_ref01_match = [];
 
-        [$get_email_ref01_list_result, $err] = $get_email_ref01_ent->list($get_email_ref01_match, null);
-        $this->assertNull($err);
+        $get_email_ref01_list_result = $get_email_ref01_ent->list($get_email_ref01_match, null);
         $this->assertIsArray($get_email_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function get_email_basic_setup($extra)
         "KMAIL_TEST_GET_EMAIL_ENTID" => $idmap,
         "KMAIL_TEST_LIVE" => "FALSE",
         "KMAIL_TEST_EXPLAIN" => "FALSE",
-        "KMAIL_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function get_email_basic_setup($extra)
     if ($env["KMAIL_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["KMAIL_APIKEY"],
             ],
             $extra ?? [],
         ]);

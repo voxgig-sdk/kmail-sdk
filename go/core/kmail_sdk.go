@@ -245,6 +245,9 @@ func (sdk *KmailSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// GetEmail returns a GetEmail entity bound to this client.
+// Idiomatic usage: client.GetEmail(nil).List(nil, nil) or
+// client.GetEmail(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *KmailSDK) GetEmail(data map[string]any) KmailEntity {
 	return NewGetEmailEntityFunc(sdk, data)
 }

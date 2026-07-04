@@ -2,6 +2,8 @@
 
 import { GetEmailEntity } from './entity/GetEmailEntity'
 
+export type * from './KmailTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class KmailSDK {
 
 
 
+  _get_email?: GetEmailEntity
+
+  // Idiomatic facade: `client.get_email.list()` / `client.get_email.load({ id })`.
+  get get_email(): GetEmailEntity {
+    return (this._get_email ??= new GetEmailEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_email` instead. */
   GetEmail(data?: any) {
     const self = this
     return new GetEmailEntity(self,data)

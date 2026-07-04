@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `KmailSDK.test()`.
 ## GetEmailEntity
 
 ```ts
-const get_email = client.GetEmail()
+const get_email = client.get_email
 ```
 
 ### Fields
@@ -131,7 +130,7 @@ const get_email = client.GetEmail()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.GetEmail().list()
+const results = await client.get_email.list()
 ```
 
 ### Common Methods

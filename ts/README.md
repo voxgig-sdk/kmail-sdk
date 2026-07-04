@@ -9,9 +9,12 @@ The TypeScript SDK for the Kmail API — a type-safe, entity-oriented client wit
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/kmail
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/kmail-sdk/releases](https://github.com/voxgig-sdk/kmail-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { KmailSDK } from 'kmail'
+import { KmailSDK } from '@voxgig-sdk/kmail'
 
-const client = new KmailSDK({
-  apikey: process.env.KMAIL_APIKEY,
-})
+const client = new KmailSDK()
 ```
 
 ### 2. List getemails
 
 ```ts
-const result = await client.GetEmail().list()
+const result = await client.getemail.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = KmailSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.getemail.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new KmailSDK({ apikey: '...' })
+const client = new KmailSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.getemail
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new KmailSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 KMAIL_TEST_LIVE=TRUE
-KMAIL_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new KmailSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new KmailSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -273,7 +270,7 @@ API path: `/get_email`
 
 ### GetEmail
 
-Create an instance: `const get_email = client.GetEmail()`
+Create an instance: `const get_email = client.get_email`
 
 #### Operations
 
@@ -295,7 +292,7 @@ Create an instance: `const get_email = client.GetEmail()`
 #### Example: List
 
 ```ts
-const get_emails = await client.GetEmail().list()
+const get_emails = await client.get_email.list()
 ```
 
 
@@ -356,7 +353,7 @@ kmail/
 Import the SDK from the package root:
 
 ```ts
-import { KmailSDK } from 'kmail'
+import { KmailSDK } from '@voxgig-sdk/kmail'
 ```
 
 ### Entity state
@@ -366,11 +363,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const getemail = client.getemail
+await getemail.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// getemail.data() now returns the loaded getemail data
+// getemail.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

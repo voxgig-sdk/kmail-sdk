@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch GetEmailListMatch
+---@param ctrl? table
+---@return GetEmail[]
+---@return string? err
 function GetEmailEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

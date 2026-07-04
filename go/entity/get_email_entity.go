@@ -85,6 +85,27 @@ func (e *GetEmailEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GetEmail; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GetEmailEntity) DataTyped(data ...GetEmail) GetEmail {
+	if len(data) > 0 {
+		return typedFrom[GetEmail](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GetEmail](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GetEmail (all fields
+// optional at the wire level).
+func (e *GetEmailEntity) MatchTyped(match ...GetEmail) GetEmail {
+	if len(match) > 0 {
+		return typedFrom[GetEmail](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GetEmail](e.Match())
+}
+
 func (e *GetEmailEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -108,6 +129,17 @@ func (e *GetEmailEntity) List(reqmatch map[string]any, ctrl map[string]any) (any
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// GetEmailListMatch and returns []GetEmail. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *GetEmailEntity) ListTyped(reqmatch GetEmailListMatch, ctrl map[string]any) ([]GetEmail, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[GetEmail](res), nil
 }
 
 

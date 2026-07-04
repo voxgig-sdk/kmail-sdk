@@ -50,8 +50,7 @@ class TestGetEmailEntity:
         get_email_ref01_ent = client.GetEmail(None)
         get_email_ref01_match = {}
 
-        get_email_ref01_list_result, err = get_email_ref01_ent.list(get_email_ref01_match, None)
-        assert err is None
+        get_email_ref01_list_result = get_email_ref01_ent.list(get_email_ref01_match, None)
         assert isinstance(get_email_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _get_email_basic_setup(extra):
         "KMAIL_TEST_GET_EMAIL_ENTID": idmap,
         "KMAIL_TEST_LIVE": "FALSE",
         "KMAIL_TEST_EXPLAIN": "FALSE",
-        "KMAIL_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _get_email_basic_setup(extra):
     if env.get("KMAIL_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("KMAIL_APIKEY"),
             },
             extra or {},
         ])

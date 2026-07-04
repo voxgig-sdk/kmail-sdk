@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:get_email():list() / client:get_email():load({ id = ... })
+function KmailSDK:get_email(data)
+  local EntityMod = require("entity.get_email_entity")
+  if data == nil then
+    if self._get_email == nil then
+      self._get_email = EntityMod.new(self, nil)
+    end
+    return self._get_email
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_email() instead.
 function KmailSDK:GetEmail(data)
   local EntityMod = require("entity.get_email_entity")
   return EntityMod.new(self, data)

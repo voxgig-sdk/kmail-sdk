@@ -43,8 +43,7 @@ class GetEmailEntityTest < Minitest::Test
     get_email_ref01_ent = client.GetEmail(nil)
     get_email_ref01_match = {}
 
-    get_email_ref01_list_result, err = get_email_ref01_ent.list(get_email_ref01_match, nil)
-    assert_nil err
+    get_email_ref01_list_result = get_email_ref01_ent.list(get_email_ref01_match, nil)
     assert get_email_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def get_email_basic_setup(extra)
     "KMAIL_TEST_GET_EMAIL_ENTID" => idmap,
     "KMAIL_TEST_LIVE" => "FALSE",
     "KMAIL_TEST_EXPLAIN" => "FALSE",
-    "KMAIL_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def get_email_basic_setup(extra)
   if env["KMAIL_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["KMAIL_APIKEY"],
       },
       extra || {},
     ])
