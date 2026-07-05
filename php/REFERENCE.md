@@ -45,11 +45,11 @@ $client = KmailSDK::test();
 
 Create a new `GetEmailEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): KmailUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,38 +92,38 @@ $get_email = $client->GetEmail();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | ``$ARRAY`` | No |  |
-| `body` | ``$STRING`` | No |  |
-| `from` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `received_at` | ``$STRING`` | No |  |
-| `subject` | ``$STRING`` | No |  |
+| `attachment` | `array` | No |  |
+| `body` | `string` | No |  |
+| `from` | `string` | No |  |
+| `id` | `string` | No |  |
+| `received_at` | `string` | No |  |
+| `subject` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->GetEmail()->list([]);
+$results = $client->GetEmail()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -132,7 +132,7 @@ Set the entity match criteria.
 Create a new `GetEmailEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

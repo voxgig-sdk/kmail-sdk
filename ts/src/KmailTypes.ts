@@ -14,5 +14,12 @@ export interface GetEmail {
   subject?: string
 }
 
-export type GetEmailListMatch = Partial<GetEmail>
+export interface GetEmailListMatch {
+  attachment?: any[]
+  body?: string
+  from?: string
+  id?: string
+  received_at?: string
+  subject?: string
+}
 

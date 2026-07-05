@@ -15,6 +15,12 @@
 ---@field subject? string
 
 ---@class GetEmailListMatch
+---@field attachment? table
+---@field body? string
+---@field from? string
+---@field id? string
+---@field received_at? string
+---@field subject? string
 
 local M = {}
 

@@ -18,8 +18,7 @@ type GetEmail struct {
 	Subject *string `json:"subject,omitempty"`
 }
 
-// GetEmailListMatch mirrors the get_email fields as an all-optional match
-// filter (Go analog of Partial<GetEmail>).
+// GetEmailListMatch is the typed request payload for GetEmail.ListTyped.
 type GetEmailListMatch struct {
 	Attachment *[]any `json:"attachment,omitempty"`
 	Body *string `json:"body,omitempty"`

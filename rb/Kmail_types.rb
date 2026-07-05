@@ -37,7 +37,7 @@ GetEmail = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetEmail#list (any subset of GetEmail fields).
+# Request payload for GetEmail#list.
 #
 # @!attribute [rw] attachment
 #   @return [Array, nil]

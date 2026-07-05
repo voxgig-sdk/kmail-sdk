@@ -221,7 +221,7 @@ class KmailSDK:
 
 
     def GetEmail(self, data=None) -> "GetEmailEntity":
-        """Entity factory: client.GetEmail().list({}) / client.GetEmail().load({"id": ...})."""
+        """Entity factory: client.GetEmail().list() / client.GetEmail().load({"id": ...})."""
         from entity.get_email_entity import GetEmailEntity
         return GetEmailEntity(self, data)
 

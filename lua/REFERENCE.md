@@ -90,12 +90,12 @@ local get_email = client:GetEmail(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | ``$ARRAY`` | No |  |
-| `body` | ``$STRING`` | No |  |
-| `from` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `received_at` | ``$STRING`` | No |  |
-| `subject` | ``$STRING`` | No |  |
+| `attachment` | `table` | No |  |
+| `body` | `string` | No |  |
+| `from` | `string` | No |  |
+| `id` | `string` | No |  |
+| `received_at` | `string` | No |  |
+| `subject` | `string` | No |  |
 
 ### Operations
 

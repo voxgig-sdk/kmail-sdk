@@ -8,7 +8,7 @@ Complete API reference for the Kmail Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'kmail_sdk'
+require_relative 'Kmail_sdk'
 
 client = KmailSDK.new(options)
 ```
@@ -93,21 +93,21 @@ get_email = client.GetEmail
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | ``$ARRAY`` | No |  |
-| `body` | ``$STRING`` | No |  |
-| `from` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `received_at` | ``$STRING`` | No |  |
-| `subject` | ``$STRING`` | No |  |
+| `attachment` | `Array` | No |  |
+| `body` | `String` | No |  |
+| `from` | `String` | No |  |
+| `id` | `String` | No |  |
+| `received_at` | `String` | No |  |
+| `subject` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.GetEmail.list(nil)
+results = client.GetEmail.list
 ```
 
 ### Common Methods

@@ -87,21 +87,21 @@ get_email = client.GetEmail()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | ``$ARRAY`` | No |  |
-| `body` | ``$STRING`` | No |  |
-| `from` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `received_at` | ``$STRING`` | No |  |
-| `subject` | ``$STRING`` | No |  |
+| `attachment` | `list` | No |  |
+| `body` | `str` | No |  |
+| `from` | `str` | No |  |
+| `id` | `str` | No |  |
+| `received_at` | `str` | No |  |
+| `subject` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.GetEmail().list({})
+results = client.GetEmail().list()
 for get_email in results:
     print(get_email)
 ```

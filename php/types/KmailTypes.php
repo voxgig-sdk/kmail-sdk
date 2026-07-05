@@ -23,7 +23,7 @@ class GetEmail
     public ?string $subject = null;
 }
 
-/** Match filter for GetEmail#list (any subset of GetEmail fields). */
+/** Request payload for GetEmail#list. */
 class GetEmailListMatch
 {
     public ?array $attachment = null;
