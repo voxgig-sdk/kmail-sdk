@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## GetEmailEntity
 
 ```go
-get_email := client.GetEmail(nil)
+getEmail := client.GetEmail(nil)
+fmt.Println(getEmail.GetName()) // "get_email"
 ```
 
 ### Fields
@@ -112,6 +113,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.GetEmail(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

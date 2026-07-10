@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -224,14 +221,17 @@
           "url": "https://github.com/l0v3m0n3y/kmail"
         },
         "description": "The Kmail API provides a web interface for kmail.pw, a professional temporary email service. It is designed to protect user privacy and security while offering reliable and secure temporary email services.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Kmail API Production Server",
             "url": "https://kmail.pw"
           }
         ],
+        "summary": "The Kmail API provides a web interface for kmail.pw, a professional temporary email service.",
         "title": "Kmail API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://kmail.pw"
       },
       "option": {},
       "target": {
@@ -284,6 +284,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -334,6 +337,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

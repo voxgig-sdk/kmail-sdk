@@ -15,9 +15,9 @@ main: {
           url: "https://kmail.pw"
         }
       ]
+      summary: "The Kmail API provides a web interface for kmail.pw, a professional temporary email service."
       title: "Kmail API"
       version: "1.0.0"
+      website: "https://kmail.pw"
     }
   }
-}
-

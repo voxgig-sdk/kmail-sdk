@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List getemail records — the value is the array of records itself.
-    getemails, err := client.GetEmail(nil).List(nil, nil)
+    // List getEmail records — the value is the array of records itself.
+    getEmails, err := client.GetEmail(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range getemails.([]any) {
+    for _, item := range getEmails.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-getemail, err := client.GetEmail(nil).List(
+getEmail, err := client.GetEmail(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(getemail) // the returned mock data
+fmt.Println(getEmail) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -247,9 +247,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    getemail, err := client.GetEmail(nil).List(map[string]any{/* fields */}, nil)
+    getEmail, err := client.GetEmail(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // getemail is the returned record
+    // getEmail is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -278,7 +278,7 @@ API path: `/get_email`
 
 ### GetEmail
 
-Create an instance: `get_email := client.GetEmail(nil)`
+Create an instance: `getEmail := client.GetEmail(nil)`
 
 #### Operations
 
@@ -300,11 +300,11 @@ Create an instance: `get_email := client.GetEmail(nil)`
 #### Example: List
 
 ```go
-get_emails, err := client.GetEmail(nil).List(nil, nil)
+getEmails, err := client.GetEmail(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_emails) // the array of records
+fmt.Println(getEmails) // the array of records
 ```
 
 
