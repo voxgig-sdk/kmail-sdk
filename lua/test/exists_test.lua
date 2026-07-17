@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Kmail SDK exists test
 
 local sdk = require("kmail_sdk")
 
