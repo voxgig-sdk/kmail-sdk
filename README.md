@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = KmailSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = KmailSDK.test({
+  entity: {
+    get_email: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const getemails = await client.GetEmail().list()
-// getemails is an array of bare GetEmail records populated with mock data
+// getemails is an array of GetEmail entities, populated with mock data
+// — call getemails[0].data() for the record itself
 console.log(getemails)
 ```
 
@@ -110,7 +119,7 @@ import { KmailSDK } from '@voxgig-sdk/kmail'
 
 const client = new KmailSDK()
 
-// List all getemails (returns GetEmail[])
+// List all getemails (returns GetEmailEntity[] — .data() for the record)
 const getemails = await client.GetEmail().list()
 for (const getemail of getemails) {
   console.log(getemail)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/l0v3m0n3y/kmail](https://github.com/l0v3m0n3y/kmail)
 

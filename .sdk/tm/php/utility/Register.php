@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ KmailUtility::setRegistrar(function (KmailUtility $u): void {
     $u->prepare_params = [KmailPrepareParams::class, 'call'];
     $u->prepare_path = [KmailPreparePath::class, 'call'];
     $u->prepare_query = [KmailPrepareQuery::class, 'call'];
+    $u->graphql_body = [KmailGraphql::class, 'body'];
+    $u->graphql_errors = [KmailGraphql::class, 'errors'];
     $u->result_basic = [KmailResultBasic::class, 'call'];
     $u->result_body = [KmailResultBody::class, 'call'];
     $u->result_headers = [KmailResultHeaders::class, 'call'];

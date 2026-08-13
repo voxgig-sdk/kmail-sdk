@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import KmailSDK
-from core.error import KmailError
-from core.result import KmailResult
-from core.response import KmailResponse
-from core.spec import KmailSpec
-from feature.base_feature import KmailBaseFeature
+from projectname_sdk.core.error import KmailError
+from projectname_sdk.core.result import KmailResult
+from projectname_sdk.core.response import KmailResponse
+from projectname_sdk.core.spec import KmailSpec
+from projectname_sdk.feature.base_feature import KmailBaseFeature
 
 
 def _client():

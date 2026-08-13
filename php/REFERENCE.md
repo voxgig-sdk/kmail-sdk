@@ -92,7 +92,7 @@ $get_email = $client->GetEmail();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | `array` | No |  |
+| `attachments` | `array` | No |  |
 | `body` | `string` | No |  |
 | `from` | `string` | No |  |
 | `id` | `string` | No |  |

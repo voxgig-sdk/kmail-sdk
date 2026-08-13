@@ -8,6 +8,7 @@ guide: {
   entity: get_email: {
     path: "/get_email": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.messages`")|top
     }
   }
 

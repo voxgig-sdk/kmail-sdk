@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local get_email, err = client:GetEmail():load()
+    local get_email, err = client:GetEmail():list()
     if err then error(err) end
-    -- get_email is the loaded record
+    -- get_email is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -231,7 +231,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `attachment` |  |
+| `attachments` |  |
 | `body` |  |
 | `from` |  |
 | `id` |  |
@@ -261,7 +261,7 @@ Create an instance: `local get_email = client:GetEmail(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachment` | `table` |  |
+| `attachments` | `table` |  |
 | `body` | `string` |  |
 | `from` | `string` |  |
 | `id` | `string` |  |

@@ -37,7 +37,7 @@ begin
   # list returns an Array of GetEmail records — iterate directly.
   getemails = client.GetEmail.list
   getemails.each do |item|
-    puts "#{item["id"]} #{item["attachment"]}"
+    puts "#{item["id"]} #{item["attachments"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = KmailSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 getemail = client.GetEmail.list()
 puts getemail
 ```
@@ -236,7 +237,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `attachment` |  |
+| `attachments` |  |
 | `body` |  |
 | `from` |  |
 | `id` |  |
@@ -266,7 +267,7 @@ Create an instance: `get_email = client.GetEmail`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachment` | `Array` |  |
+| `attachments` | `Array` |  |
 | `body` | `String` |  |
 | `from` | `String` |  |
 | `id` | `String` |  |

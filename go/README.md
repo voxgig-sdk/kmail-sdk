@@ -260,7 +260,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"attachment"` |  |
+| `"attachments"` |  |
 | `"body"` |  |
 | `"from"` |  |
 | `"id"` |  |
@@ -290,7 +290,7 @@ Create an instance: `getEmail := client.GetEmail(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachment` | `[]any` |  |
+| `attachments` | `[]any` |  |
 | `body` | `string` |  |
 | `from` | `string` |  |
 | `id` | `string` |  |

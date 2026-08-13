@@ -35,7 +35,9 @@ const client = new KmailSDK()
 
 ### 2. List getemail records
 
-`list()` resolves to an array of GetEmail objects — iterate it directly:
+`list()` resolves to an array of GetEmail ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const getemails = await client.GetEmail().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = KmailSDK.test()
 
 const getemail = await client.GetEmail().list()
-// getemail is a bare entity populated with mock response data
+// getemail is the entity, populated with mock response data
+// — call getemail.data() for the record itself
 console.log(getemail)
 ```
 
@@ -284,7 +287,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `attachment` |  |
+| `attachments` |  |
 | `body` |  |
 | `from` |  |
 | `id` |  |
@@ -314,7 +317,7 @@ Create an instance: `const get_email = client.GetEmail()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachment` | `any[]` |  |
+| `attachments` | `any[]` |  |
 | `body` | `string` |  |
 | `from` | `string` |  |
 | `id` | `string` |  |

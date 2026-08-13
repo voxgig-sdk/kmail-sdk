@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Kmail',
   }
 
 
@@ -56,7 +56,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "attachment",
+          "name": "attachments",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -106,6 +106,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/get_email",
               "parts": [
@@ -114,7 +115,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.messages`"
               },
               "index$": 0
             }

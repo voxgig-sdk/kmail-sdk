@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = KmailSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 getemail = client.GetEmail().list()
 # getemail contains the mock response record
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -242,7 +243,7 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `attachment` |  |
+| `attachments` |  |
 | `body` |  |
 | `from` |  |
 | `id` |  |
@@ -272,7 +273,7 @@ Create an instance: `get_email = client.GetEmail()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachment` | `list` |  |
+| `attachments` | `list` |  |
 | `body` | `str` |  |
 | `from` | `str` |  |
 | `id` | `str` |  |

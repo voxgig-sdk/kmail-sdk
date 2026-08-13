@@ -37,7 +37,7 @@ class GetEmailEntity extends KmailEntityBase<GetEmail> {
 
 
 
-  async list(this: any, reqmatch?: GetEmailListMatch, ctrl?: Control): Promise<GetEmail[]> {
+  async list(this: any, reqmatch?: GetEmailListMatch, ctrl?: Control): Promise<GetEmailEntity[]> {
 
     const utility = this._utility
 

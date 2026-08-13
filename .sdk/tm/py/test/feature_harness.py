@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import KmailControl
-from core.error import KmailError
-from core.result import KmailResult
-from core.spec import KmailSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import KmailControl
+from projectname_sdk.core.error import KmailError
+from projectname_sdk.core.result import KmailResult
+from projectname_sdk.core.spec import KmailSpec
 
 
 # True when this SDK was generated with the named feature.

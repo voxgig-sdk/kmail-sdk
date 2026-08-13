@@ -6,7 +6,7 @@ main: kit: entity: get_email: {
 
   fields: [
     {
-      name: "attachment"
+      name: "attachments"
       req: false
       type: "`$ARRAY`"
     }
@@ -55,7 +55,7 @@ main: kit: entity: get_email: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.messages`"
           }
         }
       ]

@@ -32,7 +32,7 @@ class KmailConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'attachment',
+              'name' => 'attachments',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
@@ -82,6 +82,7 @@ class KmailConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/get_email',
                   'parts' => [
@@ -90,7 +91,7 @@ class KmailConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.messages`',
                   ],
                   'index$' => 0,
                 ],

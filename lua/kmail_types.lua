@@ -7,7 +7,7 @@
 -- edit by hand.
 
 ---@class GetEmail
----@field attachment? table
+---@field attachments? table
 ---@field body? string
 ---@field from? string
 ---@field id? string
@@ -15,7 +15,7 @@
 ---@field subject? string
 
 ---@class GetEmailListMatch
----@field attachment? table
+---@field attachments? table
 ---@field body? string
 ---@field from? string
 ---@field id? string

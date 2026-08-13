@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from kmail_sdk.utility.voxgig_struct import voxgig_struct as vs
 from kmail_sdk import KmailSDK
-from core import helpers
+from kmail_sdk.core import helpers
 from test import runner
 
 

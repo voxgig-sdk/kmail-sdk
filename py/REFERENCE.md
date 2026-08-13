@@ -87,7 +87,7 @@ get_email = client.GetEmail()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | `list` | No |  |
+| `attachments` | `list` | No |  |
 | `body` | `str` | No |  |
 | `from` | `str` | No |  |
 | `id` | `str` | No |  |

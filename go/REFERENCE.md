@@ -98,7 +98,7 @@ fmt.Println(getEmail.GetName()) // "get_email"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | `[]any` | No |  |
+| `attachments` | `[]any` | No |  |
 | `body` | `string` | No |  |
 | `from` | `string` | No |  |
 | `id` | `string` | No |  |

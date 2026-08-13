@@ -27,7 +27,7 @@ module KmailConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "attachment",
+              "name" => "attachments",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -77,6 +77,7 @@ module KmailConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/get_email",
                   "parts" => [
@@ -85,7 +86,7 @@ module KmailConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.messages`",
                   },
                   "index$" => 0,
                 },

@@ -93,7 +93,7 @@ get_email = client.GetEmail
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | `Array` | No |  |
+| `attachments` | `Array` | No |  |
 | `body` | `String` | No |  |
 | `from` | `String` | No |  |
 | `id` | `String` | No |  |

@@ -116,7 +116,7 @@ const get_email = client.GetEmail()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | `any[]` | No |  |
+| `attachments` | `any[]` | No |  |
 | `body` | `string` | No |  |
 | `from` | `string` | No |  |
 | `id` | `string` | No |  |

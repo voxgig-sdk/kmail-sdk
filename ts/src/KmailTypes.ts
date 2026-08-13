@@ -6,7 +6,7 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface GetEmail {
-  attachment?: any[]
+  attachments?: any[]
   body?: string
   from?: string
   id?: string
@@ -15,7 +15,7 @@ export interface GetEmail {
 }
 
 export interface GetEmailListMatch {
-  attachment?: any[]
+  attachments?: any[]
   body?: string
   from?: string
   id?: string

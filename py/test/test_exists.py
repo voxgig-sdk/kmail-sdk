@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Kmail SDK exists test
 
 import pytest
 from kmail_sdk import KmailSDK

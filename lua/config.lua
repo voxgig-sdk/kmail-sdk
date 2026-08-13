@@ -26,7 +26,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "attachment",
+            ["name"] = "attachments",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 0,
@@ -76,6 +76,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/get_email",
                 ["parts"] = {
@@ -84,7 +85,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.messages`",
                 },
                 ["index$"] = 0,
               },

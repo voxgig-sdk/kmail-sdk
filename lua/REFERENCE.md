@@ -90,7 +90,7 @@ local get_email = client:GetEmail(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachment` | `table` | No |  |
+| `attachments` | `table` | No |  |
 | `body` | `string` | No |  |
 | `from` | `string` | No |  |
 | `id` | `string` | No |  |

@@ -2,7 +2,7 @@
   "existing": {
     "get_email": {
       "GET_EMAIL00": {
-        "attachment": [],
+        "attachments": [],
         "body": "s3d",
         "from": "s3e",
         "id": "GET_EMAIL00",
@@ -10,7 +10,7 @@
         "subject": "s41"
       },
       "GET_EMAIL01": {
-        "attachment": [],
+        "attachments": [],
         "body": "s79",
         "from": "s7a",
         "id": "GET_EMAIL01",
@@ -18,7 +18,7 @@
         "subject": "s7d"
       },
       "GET_EMAIL02": {
-        "attachment": [],
+        "attachments": [],
         "body": "sb5",
         "from": "sb6",
         "id": "GET_EMAIL02",
@@ -30,7 +30,7 @@
   "new": {
     "get_email": {
       "get_email_ref01": {
-        "attachment": [],
+        "attachments": [],
         "body": "sf1",
         "from": "sf2",
         "received_at": "sf4",

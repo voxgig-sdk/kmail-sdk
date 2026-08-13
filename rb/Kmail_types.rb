@@ -10,7 +10,7 @@
 
 # GetEmail entity data model.
 #
-# @!attribute [rw] attachment
+# @!attribute [rw] attachments
 #   @return [Array, nil]
 #
 # @!attribute [rw] body
@@ -28,7 +28,7 @@
 # @!attribute [rw] subject
 #   @return [String, nil]
 GetEmail = Struct.new(
-  :attachment,
+  :attachments,
   :body,
   :from,
   :id,
@@ -39,7 +39,7 @@ GetEmail = Struct.new(
 
 # Request payload for GetEmail#list.
 #
-# @!attribute [rw] attachment
+# @!attribute [rw] attachments
 #   @return [Array, nil]
 #
 # @!attribute [rw] body
@@ -57,7 +57,7 @@ GetEmail = Struct.new(
 # @!attribute [rw] subject
 #   @return [String, nil]
 GetEmailListMatch = Struct.new(
-  :attachment,
+  :attachments,
   :body,
   :from,
   :id,

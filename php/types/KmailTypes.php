@@ -15,7 +15,7 @@ declare(strict_types=1);
 /** GetEmail entity data model. */
 class GetEmail
 {
-    public ?array $attachment = null;
+    public ?array $attachments = null;
     public ?string $body = null;
     public ?string $from = null;
     public ?string $id = null;
@@ -26,7 +26,7 @@ class GetEmail
 /** Request payload for GetEmail#list. */
 class GetEmailListMatch
 {
-    public ?array $attachment = null;
+    public ?array $attachments = null;
     public ?string $body = null;
     public ?string $from = null;
     public ?string $id = null;

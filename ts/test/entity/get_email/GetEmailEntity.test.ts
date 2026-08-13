@@ -63,7 +63,7 @@ describe('GetEmailEntity', async () => {
     const get_email_ref01_ent = client.GetEmail()
     const get_email_ref01_match: any = {}
 
-    const get_email_ref01_list = await get_email_ref01_ent.list(get_email_ref01_match)
+    const get_email_ref01_list = (await get_email_ref01_ent.list(get_email_ref01_match)).map((e: any) => e.data())
 
 
   })
