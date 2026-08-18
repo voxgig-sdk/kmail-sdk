@@ -40,7 +40,7 @@ class GetEmailEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = KmailConfig::make_config();
+        $cfg = KmailConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = KmailSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

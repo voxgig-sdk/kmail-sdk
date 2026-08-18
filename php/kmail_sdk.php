@@ -40,7 +40,7 @@ class KmailSDK
         $utility = new KmailUtility();
         $this->_utility = $utility;
 
-        $config = KmailConfig::make_config();
+        $config = KmailConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

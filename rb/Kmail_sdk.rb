@@ -28,7 +28,7 @@ class KmailSDK
     utility = KmailUtility.new
     @_utility = utility
 
-    config = KmailConfig.make_config
+    config = KmailConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

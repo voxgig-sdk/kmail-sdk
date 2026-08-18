@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from kmail_sdk.config import make_config
+from kmail_sdk.config import shared_config
 from kmail_sdk.features import _make_feature
 from kmail_sdk.core.control import KmailControl
 from kmail_sdk.core.error import KmailError
@@ -24,7 +24,7 @@ from kmail_sdk.core.spec import KmailSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
