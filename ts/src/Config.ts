@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Kmail',
+        slug: "kmail",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,26 +67,32 @@ class Config {
       "fields": [
         {
           "name": "attachments",
+          "short": "List of attachments",
           "type": "`$ARRAY`"
         },
         {
           "name": "body",
+          "short": "Email body content",
           "type": "`$STRING`"
         },
         {
           "name": "from",
+          "short": "Sender email address",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the message",
           "type": "`$STRING`"
         },
         {
           "name": "received_at",
+          "short": "Timestamp when the message was received",
           "type": "`$STRING`"
         },
         {
           "name": "subject",
+          "short": "Email subject",
           "type": "`$STRING`"
         }
       ],

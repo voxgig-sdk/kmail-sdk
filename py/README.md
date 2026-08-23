@@ -243,12 +243,12 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `attachments` |  |
-| `body` |  |
-| `from` |  |
-| `id` |  |
-| `received_at` |  |
-| `subject` |  |
+| `attachments` | List of attachments |
+| `body` | Email body content |
+| `from` | Sender email address |
+| `id` | Unique identifier for the message |
+| `received_at` | Timestamp when the message was received |
+| `subject` | Email subject |
 
 Operations: List.
 
@@ -273,12 +273,12 @@ Create an instance: `get_email = client.GetEmail()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachments` | `list` |  |
-| `body` | `str` |  |
-| `from` | `str` |  |
-| `id` | `str` |  |
-| `received_at` | `str` |  |
-| `subject` | `str` |  |
+| `attachments` | `list` | List of attachments |
+| `body` | `str` | Email body content |
+| `from` | `str` | Sender email address |
+| `id` | `str` | Unique identifier for the message |
+| `received_at` | `str` | Timestamp when the message was received |
+| `subject` | `str` | Email subject |
 
 #### Example: List
 

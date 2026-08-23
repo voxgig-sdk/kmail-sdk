@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Kmail",
+            "slug": "kmail",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,26 +53,32 @@ def make_config():
         "fields": [
           {
             "name": "attachments",
+            "short": "List of attachments",
             "type": "`$ARRAY`",
           },
           {
             "name": "body",
+            "short": "Email body content",
             "type": "`$STRING`",
           },
           {
             "name": "from",
+            "short": "Sender email address",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Unique identifier for the message",
             "type": "`$STRING`",
           },
           {
             "name": "received_at",
+            "short": "Timestamp when the message was received",
             "type": "`$STRING`",
           },
           {
             "name": "subject",
+            "short": "Email subject",
             "type": "`$STRING`",
           },
         ],

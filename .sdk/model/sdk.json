@@ -36,36 +36,42 @@
               "active": true,
               "name": "attachments",
               "req": false,
+              "short": "List of attachments",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "body",
               "req": false,
+              "short": "Email body content",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "from",
               "req": false,
+              "short": "Sender email address",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the message",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "received_at",
               "req": false,
+              "short": "Timestamp when the message was received",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "subject",
               "req": false,
+              "short": "Email subject",
               "type": "`$STRING`"
             }
           ],

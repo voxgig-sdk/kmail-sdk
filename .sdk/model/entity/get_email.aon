@@ -8,31 +8,37 @@ main: kit: entity: get_email: {
     {
       name: "attachments"
       req: false
+      short: "List of attachments"
       type: "`$ARRAY`"
     }
     {
       name: "body"
       req: false
+      short: "Email body content"
       type: "`$STRING`"
     }
     {
       name: "from"
       req: false
+      short: "Sender email address"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the message"
       type: "`$STRING`"
     }
     {
       name: "received_at"
       req: false
+      short: "Timestamp when the message was received"
       type: "`$STRING`"
     }
     {
       name: "subject"
       req: false
+      short: "Email subject"
       type: "`$STRING`"
     }
   ]

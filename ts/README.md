@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,12 +287,12 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `attachments` |  |
-| `body` |  |
-| `from` |  |
-| `id` |  |
-| `received_at` |  |
-| `subject` |  |
+| `attachments` | List of attachments |
+| `body` | Email body content |
+| `from` | Sender email address |
+| `id` | Unique identifier for the message |
+| `received_at` | Timestamp when the message was received |
+| `subject` | Email subject |
 
 Operations: list.
 
@@ -317,12 +317,12 @@ Create an instance: `const get_email = client.GetEmail()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachments` | `any[]` |  |
-| `body` | `string` |  |
-| `from` | `string` |  |
-| `id` | `string` |  |
-| `received_at` | `string` |  |
-| `subject` | `string` |  |
+| `attachments` | `any[]` | List of attachments |
+| `body` | `string` | Email body content |
+| `from` | `string` | Sender email address |
+| `id` | `string` | Unique identifier for the message |
+| `received_at` | `string` | Timestamp when the message was received |
+| `subject` | `string` | Email subject |
 
 #### Example: List
 

@@ -6,7 +6,7 @@ The Golang SDK for the Kmail API — an entity-oriented client using standard Go
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.GetEmail(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,12 +260,12 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"attachments"` |  |
-| `"body"` |  |
-| `"from"` |  |
-| `"id"` |  |
-| `"received_at"` |  |
-| `"subject"` |  |
+| `"attachments"` | List of attachments |
+| `"body"` | Email body content |
+| `"from"` | Sender email address |
+| `"id"` | Unique identifier for the message |
+| `"received_at"` | Timestamp when the message was received |
+| `"subject"` | Email subject |
 
 Operations: List.
 
@@ -290,12 +290,12 @@ Create an instance: `getEmail := client.GetEmail(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachments` | `[]any` |  |
-| `body` | `string` |  |
-| `from` | `string` |  |
-| `id` | `string` |  |
-| `received_at` | `string` |  |
-| `subject` | `string` |  |
+| `attachments` | `[]any` | List of attachments |
+| `body` | `string` | Email body content |
+| `from` | `string` | Sender email address |
+| `id` | `string` | Unique identifier for the message |
+| `received_at` | `string` | Timestamp when the message was received |
+| `subject` | `string` | Email subject |
 
 #### Example: List
 

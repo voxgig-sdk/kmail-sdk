@@ -247,12 +247,12 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `attachments` |  |
-| `body` |  |
-| `from` |  |
-| `id` |  |
-| `received_at` |  |
-| `subject` |  |
+| `attachments` | List of attachments |
+| `body` | Email body content |
+| `from` | Sender email address |
+| `id` | Unique identifier for the message |
+| `received_at` | Timestamp when the message was received |
+| `subject` | Email subject |
 
 Operations: List.
 
@@ -277,12 +277,12 @@ Create an instance: `$get_email = $client->GetEmail();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachments` | `array` |  |
-| `body` | `string` |  |
-| `from` | `string` |  |
-| `id` | `string` |  |
-| `received_at` | `string` |  |
-| `subject` | `string` |  |
+| `attachments` | `array` | List of attachments |
+| `body` | `string` | Email body content |
+| `from` | `string` | Sender email address |
+| `id` | `string` | Unique identifier for the message |
+| `received_at` | `string` | Timestamp when the message was received |
+| `subject` | `string` | Email subject |
 
 #### Example: List
 

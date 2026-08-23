@@ -93,12 +93,12 @@ get_email = client.GetEmail
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachments` | `Array` | No |  |
-| `body` | `String` | No |  |
-| `from` | `String` | No |  |
-| `id` | `String` | No |  |
-| `received_at` | `String` | No |  |
-| `subject` | `String` | No |  |
+| `attachments` | `Array` | No | List of attachments |
+| `body` | `String` | No | Email body content |
+| `from` | `String` | No | Sender email address |
+| `id` | `String` | No | Unique identifier for the message |
+| `received_at` | `String` | No | Timestamp when the message was received |
+| `subject` | `String` | No | Email subject |
 
 ### Operations
 

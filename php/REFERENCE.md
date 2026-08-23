@@ -92,12 +92,12 @@ $get_email = $client->GetEmail();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachments` | `array` | No |  |
-| `body` | `string` | No |  |
-| `from` | `string` | No |  |
-| `id` | `string` | No |  |
-| `received_at` | `string` | No |  |
-| `subject` | `string` | No |  |
+| `attachments` | `array` | No | List of attachments |
+| `body` | `string` | No | Email body content |
+| `from` | `string` | No | Sender email address |
+| `id` | `string` | No | Unique identifier for the message |
+| `received_at` | `string` | No | Timestamp when the message was received |
+| `subject` | `string` | No | Email subject |
 
 ### Operations
 

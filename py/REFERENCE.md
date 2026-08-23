@@ -87,12 +87,12 @@ get_email = client.GetEmail()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attachments` | `list` | No |  |
-| `body` | `str` | No |  |
-| `from` | `str` | No |  |
-| `id` | `str` | No |  |
-| `received_at` | `str` | No |  |
-| `subject` | `str` | No |  |
+| `attachments` | `list` | No | List of attachments |
+| `body` | `str` | No | Email body content |
+| `from` | `str` | No | Sender email address |
+| `id` | `str` | No | Unique identifier for the message |
+| `received_at` | `str` | No | Timestamp when the message was received |
+| `subject` | `str` | No | Email subject |
 
 ### Operations
 

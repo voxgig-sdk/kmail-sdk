@@ -237,12 +237,12 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `attachments` |  |
-| `body` |  |
-| `from` |  |
-| `id` |  |
-| `received_at` |  |
-| `subject` |  |
+| `attachments` | List of attachments |
+| `body` | Email body content |
+| `from` | Sender email address |
+| `id` | Unique identifier for the message |
+| `received_at` | Timestamp when the message was received |
+| `subject` | Email subject |
 
 Operations: List.
 
@@ -267,12 +267,12 @@ Create an instance: `get_email = client.GetEmail`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attachments` | `Array` |  |
-| `body` | `String` |  |
-| `from` | `String` |  |
-| `id` | `String` |  |
-| `received_at` | `String` |  |
-| `subject` | `String` |  |
+| `attachments` | `Array` | List of attachments |
+| `body` | `String` | Email body content |
+| `from` | `String` | Sender email address |
+| `id` | `String` | Unique identifier for the message |
+| `received_at` | `String` | Timestamp when the message was received |
+| `subject` | `String` | Email subject |
 
 #### Example: List
 
