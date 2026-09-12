@@ -18,6 +18,7 @@ main: kit: entity: get_email: {
       type: "`$STRING`"
     }
     {
+      format: "email"
       name: "from"
       req: false
       short: "Sender email address"
@@ -30,6 +31,7 @@ main: kit: entity: get_email: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "received_at"
       req: false
       short: "Timestamp when the message was received"
@@ -56,8 +58,10 @@ main: kit: entity: get_email: {
         {
           method: "GET"
           orig: "/get_email"
-          parts: [
-            "get_email"
+          segments: [
+            {
+              lit: "get_email"
+            }
           ]
           transform: {
             req: "`reqdata`"

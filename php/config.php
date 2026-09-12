@@ -68,6 +68,7 @@ class KmailConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'email',
               'name' => 'from',
               'short' => 'Sender email address',
               'type' => '`$STRING`',
@@ -78,6 +79,7 @@ class KmailConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'received_at',
               'short' => 'Timestamp when the message was received',
               'type' => '`$STRING`',
@@ -87,6 +89,10 @@ class KmailConfig
               'short' => 'Email subject',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'get_email',
           'op' => [
@@ -99,13 +105,18 @@ class KmailConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/get_email',
-                  'parts' => [
-                    'get_email',
+                  'segments' => [
+                    [
+                      'lit' => 'get_email',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.messages`',
+                  ],
+                  'parts' => [
+                    'get_email',
                   ],
                 ],
               ],

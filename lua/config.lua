@@ -42,6 +42,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "email",
             ["name"] = "from",
             ["short"] = "Sender email address",
             ["type"] = "`$STRING`",
@@ -52,6 +53,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "received_at",
             ["short"] = "Timestamp when the message was received",
             ["type"] = "`$STRING`",
@@ -61,6 +63,10 @@ local function make_config()
             ["short"] = "Email subject",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "get_email",
         ["op"] = {
@@ -73,13 +79,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/get_email",
-                ["parts"] = {
-                  "get_email",
+                ["segments"] = {
+                  {
+                    ["lit"] = "get_email",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.messages`",
+                },
+                ["parts"] = {
+                  "get_email",
                 },
               },
             },
