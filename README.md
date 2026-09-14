@@ -105,7 +105,7 @@ local results, err = client:GetEmail():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/kmail` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/releases) |
+| TypeScript | `@voxgig-sdk/kmail-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/releases) |
 | Python | `voxgig-sdk-kmail` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/releases) |
 | PHP | `voxgig-sdk/kmail` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/kmail-sdk/go` | `go get github.com/voxgig-sdk/kmail-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:GetEmail():list()
 ### TypeScript
 
 ```ts
-import { KmailSDK } from '@voxgig-sdk/kmail'
+import { KmailSDK } from '@voxgig-sdk/kmail-sdk'
 
 const client = new KmailSDK()
 

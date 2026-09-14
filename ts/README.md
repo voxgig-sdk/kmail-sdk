@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { KmailSDK } from '@voxgig-sdk/kmail'
+import { KmailSDK } from '@voxgig-sdk/kmail-sdk'
 
 const client = new KmailSDK()
 ```
@@ -413,7 +413,7 @@ kmail/
 Import the SDK from the package root:
 
 ```ts
-import { KmailSDK } from '@voxgig-sdk/kmail'
+import { KmailSDK } from '@voxgig-sdk/kmail-sdk'
 ```
 
 ### Entity state
