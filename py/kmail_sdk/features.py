@@ -1,12 +1,18 @@
 # Kmail SDK feature factory
 
 from kmail_sdk.feature.base_feature import KmailBaseFeature
+from kmail_sdk.feature.ratelimit_feature import KmailRatelimitFeature
+from kmail_sdk.feature.retry_feature import KmailRetryFeature
 from kmail_sdk.feature.test_feature import KmailTestFeature
+from kmail_sdk.feature.timeout_feature import KmailTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: KmailBaseFeature(),
+    "ratelimit": lambda: KmailRatelimitFeature(),
+    "retry": lambda: KmailRetryFeature(),
     "test": lambda: KmailTestFeature(),
+    "timeout": lambda: KmailTimeoutFeature(),
 }
 
 

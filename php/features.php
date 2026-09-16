@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Kmail SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class KmailFeatures
@@ -14,8 +17,14 @@ class KmailFeatures
         switch ($name) {
             case "base":
                 return new KmailBaseFeature();
+            case "ratelimit":
+                return new KmailRatelimitFeature();
+            case "retry":
+                return new KmailRetryFeature();
             case "test":
                 return new KmailTestFeature();
+            case "timeout":
+                return new KmailTimeoutFeature();
             default:
                 return new KmailBaseFeature();
         }
@@ -31,7 +40,10 @@ class KmailFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
