@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      get_email: {
-      },
-
+        get_email: {
+        },
+  
     }
   }
 
