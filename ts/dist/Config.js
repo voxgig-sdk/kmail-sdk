@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,35 +107,41 @@ class Config {
             "fields": [
                 {
                     "name": "attachments",
-                    "short": "List of attachments",
-                    "type": "`$ARRAY`"
+                    "title": "Attachments",
+                    "type": "`$ARRAY`",
+                    "short": "List of attachments"
                 },
                 {
                     "name": "body",
-                    "short": "Email body content",
-                    "type": "`$STRING`"
+                    "title": "Body",
+                    "type": "`$STRING`",
+                    "short": "Email body content"
                 },
                 {
-                    "format": "email",
                     "name": "from",
+                    "title": "From",
+                    "type": "`$STRING`",
                     "short": "Sender email address",
-                    "type": "`$STRING`"
+                    "format": "email"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the message",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier for the message"
                 },
                 {
-                    "format": "date-time",
                     "name": "received_at",
+                    "title": "Received At",
+                    "type": "`$STRING`",
                     "short": "Timestamp when the message was received",
-                    "type": "`$STRING`"
+                    "format": "date-time"
                 },
                 {
                     "name": "subject",
-                    "short": "Email subject",
-                    "type": "`$STRING`"
+                    "title": "Subject",
+                    "type": "`$STRING`",
+                    "short": "Email subject"
                 }
             ],
             "id": {
@@ -156,7 +155,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/get_email",
@@ -165,14 +163,16 @@ class Config {
                                     "lit": "get_email"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "get_email"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.messages`"
                             },
-                            "parts": [
-                                "get_email"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }

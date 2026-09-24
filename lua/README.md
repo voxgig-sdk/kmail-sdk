@@ -43,7 +43,7 @@ local getemails, err = client:GetEmail():list()
 if err then error(err) end
 
 for _, item in ipairs(getemails) do
-  print(item["id"], item["body"])
+  print(item["id"])
 end
 ```
 

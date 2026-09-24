@@ -1,0 +1,88 @@
+# Entity: get_email
+
+main: kit: entity: get_email: {
+
+  alias: field: {}
+
+  fields: {
+    attachments: {
+      h: "Attachments"
+      n: "attachments"
+      r: false
+      sh: "List of attachments"
+      t: "`$ARRAY`"
+    }
+    body: {
+      h: "Body"
+      n: "body"
+      r: false
+      sh: "Email body content"
+      t: "`$STRING`"
+    }
+    from: {
+      fo: "email"
+      h: "From"
+      n: "from"
+      r: false
+      sh: "Sender email address"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the message"
+      t: "`$STRING`"
+    }
+    received_at: {
+      fo: "date-time"
+      h: "Received At"
+      n: "received_at"
+      r: false
+      sh: "Timestamp when the message was received"
+      t: "`$STRING`"
+    }
+    subject: {
+      h: "Subject"
+      n: "subject"
+      r: false
+      sh: "Email subject"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "get_email"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /get_email"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/get_email"
+          s: [
+            {
+              lit: "get_email"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.messages`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

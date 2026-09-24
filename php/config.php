@@ -113,35 +113,41 @@ class KmailConfig
           'fields' => [
             [
               'name' => 'attachments',
-              'short' => 'List of attachments',
+              'title' => 'Attachments',
               'type' => '`$ARRAY`',
+              'short' => 'List of attachments',
             ],
             [
               'name' => 'body',
-              'short' => 'Email body content',
+              'title' => 'Body',
               'type' => '`$STRING`',
+              'short' => 'Email body content',
             ],
             [
-              'format' => 'email',
               'name' => 'from',
-              'short' => 'Sender email address',
+              'title' => 'From',
               'type' => '`$STRING`',
+              'short' => 'Sender email address',
+              'format' => 'email',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the message',
+              'title' => 'Id',
               'type' => '`$STRING`',
+              'short' => 'Unique identifier for the message',
             ],
             [
-              'format' => 'date-time',
               'name' => 'received_at',
-              'short' => 'Timestamp when the message was received',
+              'title' => 'Received At',
               'type' => '`$STRING`',
+              'short' => 'Timestamp when the message was received',
+              'format' => 'date-time',
             ],
             [
               'name' => 'subject',
-              'short' => 'Email subject',
+              'title' => 'Subject',
               'type' => '`$STRING`',
+              'short' => 'Email subject',
             ],
           ],
           'id' => [
@@ -155,7 +161,6 @@ class KmailConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/get_email',
@@ -164,14 +169,16 @@ class KmailConfig
                       'lit' => 'get_email',
                     ],
                   ],
-                  'select' => [],
+                  'parts' => [
+                    'get_email',
+                  ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.messages`',
                   ],
-                  'parts' => [
-                    'get_email',
-                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],

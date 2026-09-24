@@ -91,35 +91,41 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "attachments",
-						"short": "List of attachments",
+						"title": "Attachments",
 						"type": "`$ARRAY`",
+						"short": "List of attachments",
 					},
 					map[string]any{
 						"name": "body",
-						"short": "Email body content",
+						"title": "Body",
 						"type": "`$STRING`",
+						"short": "Email body content",
 					},
 					map[string]any{
-						"format": "email",
 						"name": "from",
-						"short": "Sender email address",
+						"title": "From",
 						"type": "`$STRING`",
+						"short": "Sender email address",
+						"format": "email",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the message",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the message",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "received_at",
-						"short": "Timestamp when the message was received",
+						"title": "Received At",
 						"type": "`$STRING`",
+						"short": "Timestamp when the message was received",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "subject",
-						"short": "Email subject",
+						"title": "Subject",
 						"type": "`$STRING`",
+						"short": "Email subject",
 					},
 				},
 				"id": map[string]any{
@@ -133,7 +139,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/get_email",
@@ -142,14 +147,16 @@ func MakeConfig() map[string]any {
 										"lit": "get_email",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"get_email",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.messages`",
 								},
-								"parts": []any{
-									"get_email",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

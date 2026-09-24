@@ -19,7 +19,6 @@ import type {
   GetEmailListMatch,
 } from '../KmailTypes'
 
-// TODO: needs Entity superclass
 class GetEmailEntity extends KmailEntityBase<GetEmail> {
 
   constructor(client: KmailSDK, entopts: any) {

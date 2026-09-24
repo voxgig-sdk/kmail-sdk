@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetEmailEntity = void 0;
 const KmailEntityBase_1 = require("../KmailEntityBase");
-// TODO: needs Entity superclass
 class GetEmailEntity extends KmailEntityBase_1.KmailEntityBase {
     constructor(client, entopts) {
         super(client, entopts);
