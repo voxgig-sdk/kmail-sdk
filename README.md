@@ -106,11 +106,11 @@ local results, err = client:GetEmail():list()
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/kmail-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
-| Python | `voxgig-sdk-kmail` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
-| PHP | `voxgig-sdk/kmail` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
+| Python | `voxgig-sdk-kmail-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
+| PHP | `voxgig-sdk/kmail-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/kmail-sdk/go` | `go get github.com/voxgig-sdk/kmail-sdk/go@latest` |
-| Ruby | `voxgig-sdk-kmail` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
-| Lua | `voxgig-sdk-kmail` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
+| Ruby | `voxgig-sdk-kmail-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
+| Lua | `voxgig-sdk-kmail-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/kmail-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/kmail-sdk/go-cli` | `go install github.com/voxgig-sdk/kmail-sdk/go-cli/cmd/kmail@latest` |
 | Go MCP server | `github.com/voxgig-sdk/kmail-sdk/go-mcp` | `go get github.com/voxgig-sdk/kmail-sdk/go-mcp@latest` |
 
@@ -339,10 +339,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
